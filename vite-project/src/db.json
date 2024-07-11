@@ -1,0 +1,34 @@
+{
+  "users": [
+    {
+      "id": "6d7b",
+      "name": "Sergio",
+      "email": "sergio@gmail.com",
+      "password": "123456"
+    },
+    {
+      "id": "806b",
+      "name": "Sergio",
+      "email": "sergio@gmail.com",
+      "password": "123456"
+    },
+    {
+      "id": "f6bf",
+      "name": "Sergio",
+      "email": "sergio@gmail.com",
+      "password": "123456"
+    },
+    {
+      "id": "aedd",
+      "name": "Sergio",
+      "email": "sergio@gmail.com",
+      "password": "123456"
+    },
+    {
+      "id": "93cb",
+      "name": "Sergio",
+      "email": "sergio@gmail.com",
+      "password": "123456"
+    }
+  ]
+}
