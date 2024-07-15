@@ -1,13 +1,18 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import PageContainer from './container/PageContainer'
+import Header from './components/Header'
+import ProductList from './components/ProductList'
 
 function App() {
 
   return (
     <>
-     <h1>DDSCX</h1>
+    <PageContainer>
+      <Header/>
+      <ProductList/>
+    </PageContainer>
     </>
   )
 }
