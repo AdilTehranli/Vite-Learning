@@ -3,6 +3,7 @@ import "../css/Header.css";
 import { CiShoppingBasket } from "react-icons/ci";
 import { CiLight } from "react-icons/ci";
 import { FaMoon } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [theme, setTheme] = useState(false);
@@ -29,7 +30,9 @@ const Header = () => {
       }}
     >
       <div className="flex-row">
+        <Link to='/'>
         <img src="./src/images/logo2.jpg" alt="" />
+        </Link>
         <p>Tehranli</p>
       </div>
 
