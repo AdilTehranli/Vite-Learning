@@ -1,28 +1,27 @@
-import React, { useEffect,useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setSelectedProduct } from "../redux/slices/ProductSlice";
 import { CiCircleMinus } from "react-icons/ci";
 import { CiCirclePlus } from "react-icons/ci";
+import { addToBasket, calculateAmountBasket } from "../redux/slices/BasketSlice";
 
 const ProductDetails = () => {
   const { id } = useParams();
-  const [count, setCount] = useState(0)  
+  const [count, setCount] = useState(0);
   const { product, selectedProduct } = useSelector((store) => store.product);
   const { title, price, description, image } = selectedProduct;
 
-
-    const increment =()=>{
-        setCount(count+1)
+  const increment = () => {
+    setCount(count + 1);
+  };
+  const decremenet = () => {
+    if (count <= 0) {
+      alert("don't less than 0 ");
+    } else {
+      setCount(count - 1);
     }
-    const decremenet =() =>{
-        if(count <= 0){
-            alert("don't less than 0 ")
-        }
-        else{
-            setCount(count-1)
-        }
-    }
+  };
 
   const dispatch = useDispatch();
 
@@ -37,6 +36,18 @@ const ProductDetails = () => {
           dispatch(setSelectedProduct(products));
         }
       });
+  };
+
+  const addBasket = () => {
+    const payload = {
+      id,
+      title,
+      price,
+      count,
+      description,
+    };
+    dispatch(addToBasket(payload))
+    dispatch(calculateAmountBasket())
   };
 
   return (
@@ -60,7 +71,8 @@ const ProductDetails = () => {
           <div style={{ display: "flex", alignItems: "center" }}>
             <CiCirclePlus onClick={increment} style={{ fontSize: "40px" }} />{" "}
             <span style={{ fontSize: "35px" }}>{count}</span>{" "}
-            <CiCircleMinus onClick={decremenet}
+            <CiCircleMinus
+              onClick={decremenet}
               style={{
                 fontSize: "40px",
               }}
@@ -68,6 +80,7 @@ const ProductDetails = () => {
           </div>
           <div>
             <button
+              onClick={addBasket}
               style={{
                 marginTop: "25px",
                 border: "none",
