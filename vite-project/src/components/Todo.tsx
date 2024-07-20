@@ -1,11 +1,16 @@
-import React from "react";
 import { MdDelete } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
+import { TodoType } from "../types/Types";
 
-const Todo = () => {
+interface TodoProps{
+  todoProps : TodoType
+}
+
+const Todo = ({todoProps}:TodoProps) => {
+  const {id,content} = todoProps
   return (
     <div style={{display:"flex",justifyContent:"space-between",marginTop:20}}>
-      <div>First todo</div>
+      <div>{content}</div>
       <div>
         <MdDelete style={{marginRight:10,fontSize:20}} />
         <FaEdit style={{fontSize:20}} />

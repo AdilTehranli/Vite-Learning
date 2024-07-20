@@ -6,7 +6,7 @@ import { createTodo } from "../redux/slice/TodoSlice";
 const TodoCreate = () => {
   const dispatch = useDispatch();
 
-  const [newTodo, setNewTodo] = useState<string>('');
+  const [newTodo, setNewTodo] = useState<string>("");
 
   const handleClickTodo = () => {
     if (newTodo.trim().length == 0) {
@@ -19,7 +19,7 @@ const TodoCreate = () => {
       content: newTodo,
     };
 
-    dispatch(createTodo(payload))
+    dispatch(createTodo(payload));
     setNewTodo("");
   };
 
