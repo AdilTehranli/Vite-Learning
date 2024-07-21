@@ -1,11 +1,20 @@
-import React from 'react'
+import { useState } from "react"
+
 
 const useCounter = () => {
-  return (
-    <div>
-        
-    </div>
-  )
-}
+  
+  const [count, setCount] = useState(0);
 
-export default useCounter
+  const increase = () => {
+    
+    setCount(count + 1);
+  };
+  const decrease = () => {
+    setCount(count - 1);
+  };
+  return {
+    count, increase, decrease
+  };
+};
+
+export default useCounter;
