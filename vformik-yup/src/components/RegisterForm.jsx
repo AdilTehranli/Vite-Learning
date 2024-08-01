@@ -22,7 +22,7 @@ const RegisterForm = () => {
   });
 
   return (
-    <div>
+    <React.Fragment>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="email">Email</label>
@@ -82,7 +82,7 @@ const RegisterForm = () => {
           <button type="submit">Save</button>
         </div>
       </form>
-    </div>
+    </React.Fragment>
   );
 };
 
