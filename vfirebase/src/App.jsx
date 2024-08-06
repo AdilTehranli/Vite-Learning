@@ -5,6 +5,8 @@ import './App.css'
 import RouterConfig from './config/RouterConfig'
 import Navbar from './components/Navbar'
 import Auth from './pages/Auth'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
 
@@ -12,7 +14,7 @@ function App() {
     <>
     <Navbar/>
     <RouterConfig/>
-    <Auth/>
+    <ToastContainer position='top-right' autoClose={2000}/>
     </>
   )
 }
