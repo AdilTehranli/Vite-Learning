@@ -15,7 +15,7 @@ const Auth = () => {
       const user = response.user
       if(user){
         navigate("/")
-      }
+      }  
     } catch (error) {
         toast.error("Sign Up not working: "+error.message);
     }
