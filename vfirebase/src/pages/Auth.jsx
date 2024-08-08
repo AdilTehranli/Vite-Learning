@@ -1,11 +1,26 @@
 import React, { useState } from "react";
-import {  createUserWithEmailAndPassword } from "firebase/auth";
+import {  createUserWithEmailAndPassword,signInWithEmailAndPassword  } from "firebase/auth";
 import { toast } from "react-toastify";
 import { auth } from "../FireBase";
+import {useNavigate} from 'react-router-dom'
 
 const Auth = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate()
+  const login = async () =>{
+    try {
+      
+      const response = await signInWithEmailAndPassword(auth, email, password)
+      const user = response.user
+      if(user){
+        navigate("/")
+      }
+    } catch (error) {
+        toast.error("Sign Up not working: "+error.message);
+    }
+
+  }
 
   const register = async () => {
     try {
@@ -44,7 +59,7 @@ const Auth = () => {
       </div>
       <div>
         <button>With Google</button>
-        <button>Sign Up</button>
+        <button onClick={login}>Sign Up</button>
         <button onClick={register}>Sign in</button>
       </div>
     </div>
