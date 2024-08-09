@@ -1,9 +1,17 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../FireBase";
 
 const Home = () => {
-  return (
-    <div>Home</div>
-  )
-}
+  const [user, setUser] = useState("");
+  useEffect(() => {
+    onAuthStateChanged(auth, (useCradential) => {
+      if (useCradential) {
+        setUser(useCradential.email);
+      }
+    });
+  }, []);
+  return <div>Hello {user}</div>;
+};
 
-export default Home
+export default Home;
