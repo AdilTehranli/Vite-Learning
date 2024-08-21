@@ -1,0 +1,25 @@
+{
+  "user": [
+    {
+      "id": 1,
+      "name": "John",
+      "surname":"Jhondovic",
+      "experience": "2 years",
+      "salary": "2000$"
+    },
+    {
+      "id": 2,
+      "name": "Alex",
+      "surname":"Alexandrov",
+      "experience": "3 years",
+      "salary": "300$"
+    },
+    {
+      "id": 3,
+      "name": "Yulia",
+      "surname":"Jhondovic",
+      "experience": "2 years",
+      "salary": "4000$"
+    }
+  ]
+}
