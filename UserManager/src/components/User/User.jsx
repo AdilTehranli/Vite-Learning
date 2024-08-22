@@ -27,6 +27,17 @@ const User = () => {
     fetchUsers();
   }, []);
 
+  const deleteUser = (id) => {
+    axios.delete(`https://jsonplaceholder.typicode.com/users/${id}`)
+      .then((response) => {
+        // Update the users state by filtering out the deleted user
+        setUsers(users.filter((user) => user.id !== id));
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
+  };
+
   return (
     <div>
       <TableContainer component={Paper}>
@@ -60,7 +71,9 @@ const User = () => {
                   <Button color="secondary">Edit</Button>
                 </TableCell>
                 <TableCell>
-                  <Button color="error">Delete</Button>
+                  <Button onClick={() => deleteUser(user.id)} color="error">
+                    Delete
+                  </Button>
                 </TableCell>
               </TableRow>
             ))}
