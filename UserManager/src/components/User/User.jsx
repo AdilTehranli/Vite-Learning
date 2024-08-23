@@ -8,6 +8,7 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { Button } from "@mui/material";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const API_KEY = "https://jsonplaceholder.typicode.com/users";
 
@@ -30,7 +31,6 @@ const User = () => {
   const deleteUser = (id) => {
     axios.delete(`https://jsonplaceholder.typicode.com/users/${id}`)
       .then((response) => {
-        // Update the users state by filtering out the deleted user
         setUsers(users.filter((user) => user.id !== id));
       })
       .catch((error) => {
@@ -48,7 +48,6 @@ const User = () => {
               <TableCell>Name</TableCell>
               <TableCell>Email</TableCell>
               <TableCell>Phone</TableCell>
-              <TableCell>Website</TableCell>
               <TableCell>
                 <Button color="success">Add</Button>
               </TableCell>
@@ -66,9 +65,8 @@ const User = () => {
                 <TableCell>{user.name}</TableCell>
                 <TableCell>{user.email}</TableCell>
                 <TableCell>{user.phone}</TableCell>
-                <TableCell>{user.website}</TableCell>
                 <TableCell>
-                  <Button color="secondary">Edit</Button>
+                  <Link to={`/update/${user.id}`} color="secondary">Edit</Link>
                 </TableCell>
                 <TableCell>
                   <Button onClick={() => deleteUser(user.id)} color="error">
